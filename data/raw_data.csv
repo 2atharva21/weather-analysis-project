@@ -1,0 +1,6 @@
+city,temperature,humidity,pressure,wind_speed,description,timestamp
+Pune,27.78,31,1013,1.54,broken clouds,2025-02-01T11:57:19.915075
+Mumbai,26.99,41,1014,3.09,smoke,2025-02-01T11:57:20.963619
+Delhi,16.05,88,1015,2.06,fog,2025-02-01T11:57:22.021164
+Bangalore,26.92,61,1014,2.06,scattered clouds,2025-02-01T11:57:23.060600
+Chennai,30.99,69,1013,2.57,haze,2025-02-01T11:57:24.095271

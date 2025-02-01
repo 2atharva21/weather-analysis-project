@@ -1,0 +1,6 @@
+city,temperature,humidity,pressure,wind_speed,timestamp,description_fog,description_haze,description_scattered clouds,description_smoke
+Pune,0.7851405622489962,0.0,0.0,0.0,2025-02-01T11:57:19.915075,False,False,False,False
+Mumbai,0.7322623828647925,0.17543859649122817,0.5,0.9999999999999999,2025-02-01T11:57:20.963619,False,False,False,True
+Delhi,0.0,1.0,1.0,0.335483870967742,2025-02-01T11:57:22.021164,True,False,False,False
+Bangalore,0.7275769745649265,0.5263157894736843,0.5,0.335483870967742,2025-02-01T11:57:23.060600,False,False,True,False
+Chennai,1.0000000000000002,0.6666666666666667,0.0,0.664516129032258,2025-02-01T11:57:24.095271,False,True,False,False
