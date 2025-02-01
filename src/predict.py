@@ -1,40 +1,60 @@
 import joblib
 import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.preprocessing import StandardScaler
+
+def train_and_save_model():
+    # Example training data (use real data here)
+    X_train = [[0.7, 1015, 3.2], [0.6, 1020, 4.0], [0.8, 1018, 3.5]]
+    y_train = [22.3, 23.0, 21.7]
+    
+    # Train the model
+    model = RandomForestRegressor()
+    model.fit(X_train, y_train)
+    
+    # Save the trained model
+    joblib.dump(model, "models/weather_model.pkl")
+    
+    # Save scaler if you're using it
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    joblib.dump(scaler, "models/scaler.pkl")
 
 def predict_weather(input_data):
-    # Load the trained model and scaler
+    # Load the trained model (ensure it’s the most recent model)
     model = joblib.load("models/weather_model.pkl")
+    
+    # Load the scaler used for normalization (during training)
     scaler = joblib.load("models/scaler.pkl")
     
-    # List of all features that the model expects, excluding the target variable
-    expected_columns = ['humidity', 'pressure', 'wind_speed', 'description_clear sky', 'description_cloudy']  # Adjust based on your dataset
+    # List of expected features (based on the model training process)
+    expected_columns = ['humidity', 'pressure', 'wind_speed']
     
     # Convert the input_data into a DataFrame
     df = pd.DataFrame([input_data])
     
-    # If description column exists in input data, one-hot encode it
-    if 'description' in input_data:
-        description_dummies = pd.get_dummies(df['description'], drop_first=True)
-        df = pd.concat([df, description_dummies], axis=1).drop(columns=['description'])
-    
-    # Align the input columns to match the model's expected features
+    # Ensure the input data matches the expected columns
     df = df.reindex(columns=expected_columns, fill_value=0)
     
-    # Normalize the numerical features (use the same scaler as during training)
+    # Normalize the numerical features using the same scaler as during training
     df[['humidity', 'pressure', 'wind_speed']] = scaler.transform(df[['humidity', 'pressure', 'wind_speed']])
     
-    # Make prediction
-    prediction = model.predict(df)
+    # Make prediction without feature names
+    prediction = model.predict(df.values)  # Use .values to drop feature names
     
     return prediction[0]
 
 if __name__ == "__main__":
+    # Train model (this step only needs to be done once and will save the model)
+    # train_and_save_model()  # Uncomment this to retrain and save model
+    
+    # Example input data for prediction (this would ideally be dynamic)
     input_data = {
-        'humidity': 0.7, 
-        'pressure': 1015, 
-        'wind_speed': 3.2,
-        'description': 'clear sky'  # Adjust this to match the model's features
+        'humidity': float(input("Enter humidity: ")), 
+        'pressure': float(input("Enter pressure: ")), 
+        'wind_speed': float(input("Enter wind speed: "))
     }
     
+    # Make prediction each time with updated input data
     temp = predict_weather(input_data)
     print(f"Predicted Temperature: {temp:.2f}°C")
