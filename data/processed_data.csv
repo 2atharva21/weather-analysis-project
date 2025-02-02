@@ -1,6 +1,6 @@
-city,temperature,humidity,pressure,wind_speed,timestamp,description_overcast clouds,description_scattered clouds,description_smoke
-Pune,0.9377316530763529,0.0,0.0,0.2038834951456311,2025-02-01T12:38:16.938914,True,False,False
-Mumbai,0.8109710896960713,0.17857142857142855,0.5,1.0,2025-02-01T12:38:17.970626,False,False,True
-Delhi,0.0,1.0,1.0,0.4983818770226537,2025-02-01T12:38:19.006567,False,False,False
-Bangalore,0.7598220904373609,0.5535714285714286,0.5,0.0,2025-02-01T12:38:20.079229,False,True,False
-Chennai,1.0,0.75,0.0,0.4983818770226537,2025-02-01T12:38:21.169175,False,True,False
+city,temperature,humidity,pressure,wind_speed,timestamp,description_few clouds,description_fog,description_scattered clouds,description_smoke
+Pune,0.9022082018927446,0.0,0.3333333333333144,0.45736434108527146,2025-02-02T10:53:19.473130,False,False,False,False
+Mumbai,0.8794952681388013,0.08823529411764708,0.0,0.6007751937984496,2025-02-02T10:53:20.522447,False,False,False,True
+Delhi,0.0,1.0,1.0,0.7984496124031006,2025-02-02T10:53:21.549898,False,True,False,False
+Bangalore,0.8239747634069401,0.36764705882352944,0.3333333333333144,1.0,2025-02-02T10:53:22.587215,True,False,False,False
+Chennai,1.0,0.5735294117647058,0.3333333333333144,0.0,2025-02-02T10:53:23.648171,False,False,True,False
